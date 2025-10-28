@@ -3,6 +3,7 @@ import { expect, Locator, Page } from '@playwright/test';
 export type ReverbUrlOptions = {
   yearMin?: number,
   yearMax?: number,
+
   category?: "electric-guitars" | "keyboards-and-synths" |
   "effects-and-pedals" | "bass-guitars" | "amps",
 
@@ -10,6 +11,7 @@ export type ReverbUrlOptions = {
   "rickenbacker" | "mosrite" | "moog" | "korg" |
   "roland" | "yamaha" | "boss" | "dunlop" |
   "ernie-ball" | string,
+
   debug?: boolean
 }
 
@@ -47,7 +49,7 @@ export class ReverbURLBuilder {
 
     expect(await this.page.locator('.search-overview__title').waitFor())
 
-    // wait for visualization in UI mode
+    // for demo purposes wait for visualization in UI mode
     await this.page.waitForTimeout(10000);
 
     if (debug) {

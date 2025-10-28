@@ -16,8 +16,6 @@ export enum LeftNavValues {
     AutoWaiting = "Auto-waiting",
 }
 
-
-
 export class PlaywrightDevPage {
     readonly page: Page;
 
