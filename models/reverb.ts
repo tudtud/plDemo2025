@@ -1,17 +1,34 @@
 import { expect, Locator, Page } from '@playwright/test';
 
+export enum Brand {
+  fender = "fender",
+  gibson = "gibson",
+  gretsch = "gretsch",
+  epiphone = "epiphone",
+  rickenbacker = "rickenbacker",
+  mosrite = "mosrite",
+  moog = "moog",
+  korg = "korg",
+  roland = "roland",
+  yamaha = "yamaha",
+  boss = "boss",
+  dunlop = "dunlop",
+  ernie_ball = "ernie-ball"
+}
+
+export enum Category {
+  electricGuitars = "electric-guitars",
+  keyboardsAndSynths = "keyboards-and-synths",
+  effectsAndPedals = "effects-and-pedals",
+  bassGuitars = "bass-guitars",
+  amps = "amps"
+}
+
 export type ReverbUrlOptions = {
   yearMin?: number,
   yearMax?: number,
-
-  category?: "electric-guitars" | "keyboards-and-synths" |
-  "effects-and-pedals" | "bass-guitars" | "amps",
-
-  brand?: "fender" | "gibson" | "gretsch" | "epiphone" |
-  "rickenbacker" | "mosrite" | "moog" | "korg" |
-  "roland" | "yamaha" | "boss" | "dunlop" |
-  "ernie-ball" | string,
-
+  category?: Category | string,
+  brand?: Brand | string,
   debug?: boolean
 }
 
@@ -37,6 +54,7 @@ export class ReverbURLBuilder {
     expect(this.resultsLocator).toBeVisible();
   }
 
+  // use explicit parameters to build URL and navigate for clarity in test runner. field names will now display.
   async buildUrl({ yearMin, yearMax, category, brand, debug }: ReverbUrlOptions) {
 
     let url = 'https://reverb.com/marketplace?'
