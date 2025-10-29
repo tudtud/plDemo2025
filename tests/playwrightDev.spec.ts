@@ -8,7 +8,6 @@ test.describe('Playwright Dev Page Tests', () => {
         await devPage.docsLeftNav(LeftNavValues.Agents);
     });
 
-    // Click All Values in the LeftNavValue Enum after navigating to Docs
     for (const leftNavValue of Object.values(LeftNavValues))
         test(`Navigate to Docs then click ${leftNavValue} in Left Nav`, async ({ devPage }) => {
             await devPage.topNav(TopNavValues.Docs);

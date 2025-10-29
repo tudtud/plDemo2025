@@ -32,6 +32,7 @@ export class PlaywrightDevPage {
         await this.page.waitForURL('**/docs/**');
     }
 
+    // example of using a template literal instead of enum for simplicity
     async languageDropdown(language: 'Node.js' | 'Python' | 'Java' | '.NET') {
         await this.page.getByRole('button', { name: 'Node.js' }).hover();
         await this.page.getByRole('link', { name: language }).click();
